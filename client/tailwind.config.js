@@ -15,6 +15,9 @@ export default {
       screens: {
         dc: "1023px",
         cd: "100px",
+        na: "768px",
+        an: "0px"
+
       },
     }
   },

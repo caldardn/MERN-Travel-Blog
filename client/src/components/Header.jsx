@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button, Navbar, TextInput } from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
 
 export default function Header() {
+  const path = useLocation().pathname;
   return (
     <Navbar className="border-b-2">
       <Link
@@ -16,11 +17,6 @@ export default function Header() {
         </span>
         The World Is Yours To Explore
       </Link>
-      <div className="flex space-x-4">
-        <Link to="/" className="ml-4">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/locations">Locations</Link>
-      </div>
 
       <form className="ml-auto relative">
         <TextInput
@@ -30,6 +26,11 @@ export default function Header() {
           className="cd:hidden lg:inline"
         />
       </form>
+      <div className="na:block an:hidden space-x-4">
+        <Link to="/" className="ml-4">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/locations">Locations</Link>
+      </div>
 
       <Button className="w-12 h-10 dc:hidden" color="gray" pill>
         <AiOutlineSearch />
@@ -42,7 +43,20 @@ export default function Header() {
         <Link to="/sign-in">
           <Button gradientDuoTone="purpleToBlue">sign in</Button>
         </Link>
+        <Navbar.Toggle />
       </div>
+
+      <Navbar.Collapse>
+        <Navbar.Link active={path === '/'} as={'div'}>
+          <Link to='/'>Home</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === '/about'} as={'div'}>
+          <Link to='/about'>About</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === '/projects'} as={'div'}>
+          <Link to='/locations'>Locations</Link>
+        </Navbar.Link>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
