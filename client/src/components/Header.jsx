@@ -26,7 +26,7 @@ export default function Header() {
           className="cd:hidden lg:inline"
         />
       </form>
-      <div className="na:block an:hidden space-x-4">
+      <div className="na:block an:hidden space-x-4 p-4">
         <Link to="/" className="ml-4">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/locations">Locations</Link>
@@ -41,7 +41,7 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to="/sign-in">
-          <Button gradientDuoTone="purpleToBlue">sign in</Button>
+          <Button gradientDuoTone="purpleToBlue" outline>Sign In</Button>
         </Link>
         <Navbar.Toggle />
       </div>
@@ -53,7 +53,7 @@ export default function Header() {
         <Navbar.Link active={path === '/about'} as={'div'}>
           <Link to='/about'>About</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === '/projects'} as={'div'}>
+        <Navbar.Link active={path === '/locations'} as={'div'}>
           <Link to='/locations'>Locations</Link>
         </Navbar.Link>
       </Navbar.Collapse>
